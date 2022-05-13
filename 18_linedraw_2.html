@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="600" ></canvas>
+  <script>
+    //1.객체를 얻는다.(화면을 얻는다)
+    //2. 획득한 객체에 대해서 알맹이를 얻는다.(도구를 얻는다(펜))
+    //3.시작을 위한 초기화 작업
+    //4. 변경하려는 사항은 속성을 이용해서 변경
+    //5. 실행
+    const c = document.getElementById("canvas")
+    const ctx=c.getContext("2d");
+    ctx.beginPath();
+    ctx.strokeStyle="gray";
+    ctx.lineWidth=3;
+    var x = 0;
+    setInterval(()=>{
+      ctx.moveTo(0,300);
+      ctx.lineTo(x,300);
+      ctx.stroke();
+      x=x+10;
+
+
+
+
+
+
+
+      
+    },100)
+    
+
+    
+    //let i =0;
+    // setInterval(
+    // function(){document.querySelector("div").innerHTML += i++}, 3000)
+  </script>
+</body>
+</html>
