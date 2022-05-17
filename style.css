@@ -1,0 +1,14 @@
+ul{
+  list-style: none;
+}
+div{
+  border: 1px solid grey;
+  width: 700px;
+}
+table{
+  border-collapse: collapse;
+  width: 700px;
+}
+tr:hover{
+  background-color: rgb(206, 239, 158);
+}

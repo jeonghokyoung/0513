@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var ajax = new XMLHttpRequest();
+    ajax.open("get","file.xml");
+    ajax.send();
+
+    ajax.onload=function(){
+      // document.write(this.responseText);
+      var xmlDoc=ajax.responseXML;
+
+      // book 의 상위 태그인 books는 book을 위한 수집객체이므로 무시
+      var books=xmlDoc.getElementsByTagName("book");
+      // document.write(books[0]+"<br>");
+      // document.write(books[1]+"<br>");
+      // document.write(books[2]+"<br>");
+      // document.write(books[3]+"<br>");
+      // document.write(books[4]+"<br>");
+
+      for(let i=0; i<books.length;i++){
+      document.querySelector("div").innerHTML+=
+      books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue+"<br>";
+
+      document.querySelector("div").innerHTML+=
+      books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue+"<br>";
+
+      document.querySelector("div").innerHTML+=
+      books[i].getElementsByTagName("price")[0].childNodes[0].nodeValue+"<br>";
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

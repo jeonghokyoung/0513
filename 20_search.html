@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let i =0;
+    let data = ["사과", "오렌지", "바나나", "당근"];
+    let search="오렌지";
+    for(i=0; i<data.length; i++){
+      if(search === data[i]){
+        document.write("데이터에 값이 존재함")
+        break;  //데이터를 찾았으면 for문을 빠져나와야하기때문에 break를 걸어줘야한다.
+      }else if(i ===data.length-1){
+        document.write("찾는 데이터가 없습니다")
+      }
+    }
+
+    //index
+    for(d in data){
+      // document.write(data[d]+"<br>");
+    }
+    //data
+    for(d of data){
+      // document.write(d+"<br>");
+    }
+    //index data 전체 데이터
+    data.forEach(function(item,index,arr){
+      // document.write(index+" "+item)
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

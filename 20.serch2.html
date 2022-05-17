@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var ajax=new XMLHttpRequest();
+    ajax.open("get","https://jsonplaceholder.typicode.com/users");
+    ajax.send();
+
+    ajax.onload=function(){
+      // document.querySelector("div").innerHTML=responseText;
+      var jsondata = JSON.parse(this.responseText);
+      // document.querySelector("div").innerHTML=jsondata[1].name;
+      let text="";
+      text+="<table border=1><th>ID</th><th>이름</th>"
+        text+="<th>별명</th><th>이메일주소</th></tr>"
+      /*
+      text+="<table border=1> <tr><th>ID</th><th>이름</th></tr>"
+      for(let i =0; i<10; i++){
+        text+=`<tr><td>${jsondata[i].id}</td><td>${jsondata[i].name}</td></tr>`
+        text+=jsondata[i].id+" "+jsondata[i].name+"<br>"
+      }*/
+//<tr onclick='alert(this.innerText)'>
+  //<tr onclick='search(this.innerText)'>
+      for(i in jsondata){
+        text+="<tr onclick='search(this.innerText)'>"
+        text+=`<td>${jsondata[i].id}</td><td>${jsondata[i].name}</td>`
+        text+=`<td>${jsondata[i].username}</td><td>${jsondata[i].email}</td>`
+        text+="</tr>"
+      }
+      text+="</table>";
+      document.querySelector("div").innerHTML=text;
+    }
+
+    function search(text){
+      var arr = text.split("	")
+      for(str of arr){
+        document.write(str+"<br>");
+      }
+      document.write("주키:"+arr[0])
+    }
+
+  </script>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

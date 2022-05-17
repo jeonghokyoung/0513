@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies Lank</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const ajax= new XMLHttpRequest();
+    ajax.open("get","http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+    ajax.send();
+
+    ajax.onload=function(){ //결과가 들어있는 곳
+      const jsondata = JSON.parse(this.responseText);
+      let text="";
+      text+="<table border=1><th>순위</th><th>영화제목</th>";
+      for(i in jsondata.boxOfficeResult.dailyBoxOfficeList){
+        text+="<tr onclick='search(this.innerText)'>"
+          text+=`<td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].rank}위</td> <td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].movieNm}</td>`
+        text+="</tr>"
+      }
+      text+="</table>";
+      document.querySelector("div").innerHTML=text;
+    }
+    
+    function search(text){
+      //검색값을 추출
+      var arr = text.split("	");
+      // // document.write(arr[0]);
+      var search=arr[0].substring(0,arr[0].indexOf("위"));
+      // document.write(search)
+
+      //검색할 데이터 목록을 가지고 와서 검색을 하는 작업
+      var data = new XMLHttpRequest();
+      data.open("get","http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+      data.send();
+      
+      data.onload = function(){
+      jsondata= JSON.parse(data.responseText);
+      // document.write(jsondata.boxOfficeResult.dailyBoxOfficeList[1].rank);
+        var obj = jsondata.boxOfficeResult;
+        for(i=0; i<obj.dailyBoxOfficeList.length; i++){
+            if(search==obj.dailyBoxOfficeList[i].rank){
+            // alert("찾기성공")
+            text="";
+            text+=`영화제목:${obj.dailyBoxOfficeList[i].movieNm}<br>`;
+            text+=`영화조회수:${obj.dailyBoxOfficeList[i].showCnt}<br>`;
+            text+=`영화오픈일:${obj.dailyBoxOfficeList[i].openDt}<br>`;
+            document.querySelector("#content").innerHTML=text;
+            /*
+            document.write(`영화제목:${obj.dailyBoxOfficeList[i].movieNm}<br>`)
+            document.write(`영화조회수:${obj.dailyBoxOfficeList[i].showCnt}<br>`)
+            document.write(`영화오픈일:${obj.dailyBoxOfficeList[i].openDt}<br>`)
+            */
+            break;
+          }
+        }
+      }
+    }
+    
+
+    
+  </script>
+</head>
+<body>
+  <div></div>
+  <div id ="content"></div>
+  <!-- <div class="contents">
+    <ul>
+      <li>영화제목 : 미션임파서블:고스트프로토콜</li>
+      <li>영어제목 : Mission: Impossible - Ghost Protocol</li>
+      <li>상영시간 132분</li>
+      <li>감독:Brad Bird</li>
+      <li>출연배우: 톰 크루즈, 제레미 레너</li>
+    </ul>
+  </div> -->
+</body>
+</html>
