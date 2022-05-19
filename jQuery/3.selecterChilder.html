@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      $('body>*').css('color','red');
+      $('body>div>ul>li#cat').css('color','pink');
+    });
+
+  </script>
+</head>
+<body>
+  <div>
+    <h1>동물과 과일</h1>
+    <ul>
+      <li>Apple</li>
+      <li>Bag</li>
+      <li id ="cat">Cat</li>
+      <li>Dog</li>
+      <li>Elephant</li>
+    </ul>  
+  </div>
+</body>
+</html>

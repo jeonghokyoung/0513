@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      // alert($('input').val());
+      // alert($('input[type="button"]').val()); //type은 대괄호로 해준다 // 여기의 val()은 값을가져오는 역할 
+      
+      //아이디바꿀때는 
+      // $('input[type="text"]').val('dwit'); //val('dwit')값을입력하는역할
+      // var name =$('select>option:selected').val();
+      // alert(name)
+      var name =$('input:button').val();
+      alert(name)
+    });
+
+  </script>
+</head>
+<body>
+  <input type="text" value ="아이디"><br>
+  <input type="password" value="1234"><br>
+  <input type="button" value="실행"><br>
+  <select name="" id="">
+    <option value="사과">사과</option>
+    <option value="오렌지">오렌지</option>
+    <option value="바나나" selected>바나나</option>
+  </select>
+</body>
+</html>

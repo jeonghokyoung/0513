@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      // $.ajax({url:"data.txt",success:function(result){
+      //   $('div').html(result);
+      // }});
+      $('#abutton').click(function(){
+        $.ajax({url:"data.txt",success:function(result){
+        $('div').html(result);
+      }});
+      })
+
+      $('#bbutton').click(function(){
+        $('div').load("data.txt");
+      });
+
+      $('#cbutton').click(function(){
+        fetch("data.txt")
+        .then((response)=>{$('div').html(response.text);})
+        .catch(error)
+        // $('div').load("data.txt");
+      });
+      
+    });
+  </script>
+</head>
+<body>
+  <button id="abutton">ajax실행1</button> 
+  <button id="bbutton">ajax실행2</button> 
+  <button id="cbutton">ajax실행3</button> 
+  <div></div>
+</body>
+</html>

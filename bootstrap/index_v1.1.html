@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery/jquery-3.6.0.min.js"></script>
+  <style>
+    body{margin: 0; padding: 0;}
+    header{
+      width:100%;height:15vh;
+      background-color: aqua;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    main{
+      width:100%;height:70vh;
+      background-color: whitesmoke;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    footer{
+      width:100%;height:15vh;
+      background-color: gray;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    header ul{
+      -webkit-padding-start: 0;
+      list-style: none;
+      display: flex;
+      width:100%;
+    }
+    header li{
+      width:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+    }
+    .login{
+
+    }
+    .login li{
+      list-style: none;
+    }
+  </style>
+  <script>
+    function pageload(url){
+      if(url==="index.html"){
+        location.href="index.html";
+      }else{
+        $(function(){
+          $('main').load(url);
+        });
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <ul>
+      <li onclick="pageload('index.html')">홈</li>
+      <li onclick="pageload('login.html')">로그인</li>
+      <li onclick="pageload('member.html')">회원가입</li>
+    </ul>
+</header>
+  <main class="main">main</main>
+  <footer>footer</footer>
+</body>
+</html>

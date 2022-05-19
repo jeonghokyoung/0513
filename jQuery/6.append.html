@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script>
+    $(()=>{
+      $('button').on('click',()=>{
+        var apptext='<input type="file">';
+        $('body').append(apptext);
+      });
+
+      $('button').on('mouseover',()=>{
+        // alert("파일추가하려구요?!")
+      });
+      
+      //중괄호로 객체로 한번에 여러개를 적용시킬수도 있다. 
+      $('button').css({'backgroundColor':'yellow','color':'blue'})
+      
+      //하나씩 적용할때
+      // $('button').css('backgroundColor','pink').css('color','blue')
+
+    });
+      
+    /*
+    $(function(){
+      $('button').on('click',function(){
+        var apptext='<input type="file">';
+        $('body').append(apptext);
+      });
+    });
+    */
+  </script>
+</head>
+<body>
+  <button>파일추가</button><br>
+  <input type="file">
+</body>
+</html>

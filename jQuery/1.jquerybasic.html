@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="jquery-3.6.0.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    /* 기본적인 jquery 사용법
+    $(document).ready(//jquery를 사용하는 준비과정
+      function(){
+        
+        // document.write("hello");
+        $('h1').css('color','red') //$는 객체를 의미한다 (객체선택) 
+        $('h1').css('backgroundColor','orange')
+        
+      }
+    ); 
+    */
+
+    //$(); 제이쿼리의시작을 의미한다 () 안에 함수선언 
+    $(function(){ //   $() 는 선택자이다
+      // $('h1').css('color','red');
+      // $('*').css('color','red');
+      $('.h12').css('color','red');
+      $('#html4').css('color','gray');
+    });
+      
+  </script>
+
+</head>
+<body>
+  <div>
+    <h1 class="h12">JAVASCRIPT</h1>
+  <h2 class="h12">HTML</h2>
+  </div>
+  <h1>JAVASCRIPT</h1>
+  <h2>HTML</h2>
+  <h3>HTML</h3>
+  <h4 id ="html4">HTML</h4>
+</body>
+</html>
